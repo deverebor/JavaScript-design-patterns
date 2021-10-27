@@ -11,6 +11,9 @@ class OldCalculator {
         case 'mul':
           return term1 * term2
 
+        case 'div':
+          return term1 / term2
+
         default:
           return NaN
       }
@@ -31,6 +34,10 @@ class NewCalculator {
     this.mul = function(term1, term2) {
       return term1 * term2
     }
+
+    this.div = function(term1, term2) {
+      return term1 / term2
+    }
   }
 }
 
@@ -49,6 +56,9 @@ class CalcAdapter {
         case 'mul':
           return newCalc.mul(term1, term2)
 
+        case 'div':
+          return newCalc.div(term1, term2)
+
         default:
           return NaN
       }
@@ -57,10 +67,10 @@ class CalcAdapter {
 }
 
 const oldCalc = new OldCalculator()
-console.log(oldCalc.operations(5, 5, 'add'))
+console.log(oldCalc.operations(10, 5, 'div'))
 
 const newCalc = new NewCalculator()
-console.log(newCalc.add(5, 5))
+console.log(newCalc.div(10, 5))
 
 const adaptedCalc = new CalcAdapter()
-console.log(adaptedCalc.operations(5, 5, 'add'))
+console.log(adaptedCalc.operations(10, 5, 'div'))
